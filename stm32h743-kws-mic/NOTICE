@@ -1,0 +1,69 @@
+NOTICE
+======
+This repository (`stm32h743-kws-mic`) is a TinyML demo project. It bundles the
+following third-party components. Each component remains under its original
+license; see the upstream repositories for the full license text.
+
+1) TensorFlow Lite Micro (TFLM)
+   - Source: https://github.com/tensorflow/tflite-micro
+   - License: Apache License 2.0
+   - Included: a subset of headers (include/tensorflow, include/signal), the
+     prebuilt static library lib/libtensorflow-microlite.a (cortex-m7+fp,
+     CMSIS-NN kernels), and src/h743_port.cc (platform port derived from the
+     official hello_world example).
+
+2) CMSIS / CMSIS-NN (Arm)
+   - Source: https://github.com/ARM-software/CMSIS_5
+             https://github.com/ARM-software/CMSIS-NN
+   - License: Apache License 2.0
+   - Included: include/cmsis_core, include/cmsis_nn (headers).
+
+3) gemmlowp
+   - Source: https://github.com/google/gemmlowp
+   - License: Apache License 2.0
+   - Included: include/gemmlowp (headers).
+
+4) ruy
+   - Source: https://github.com/google/ruy
+   - License: Apache License 2.0
+   - Included: include/ruy (headers).
+
+5) kissfft
+   - Source: https://github.com/mborgerding/kissfft
+   - License: BSD-3-Clause
+   - Included: include/kissfft (headers).
+
+6) FlatBuffers
+   - Source: https://github.com/google/flatbuffers
+   - License: Apache License 2.0
+   - Included: include/flatbuffers (headers).
+
+7) STM32 device headers / startup / system (STMicroelectronics)
+   - Source: STM32Cube / CMSIS device pack (STM32H7 series)
+   - License: Apache License 2.0 / BSD-3-Clause (per the original ST file headers)
+   - Included: include/stm32h7xx, bsp/startup_stm32h743xx.s,
+     bsp/system_stm32h7xx.c
+
+8) STM32H7 HAL driver (subset) (STMicroelectronics)
+   - Source: STM32CubeH7 (STM32H7xx_HAL_Driver)
+   - License: BSD-3-Clause (per the original ST file headers)
+   - Included: hal/Inc, hal/Src (only the modules required by this project:
+     hal, cortex, rcc, gpio, i2c, dma, sai, pwr, flash, exti, tim, mdma).
+
+9) Wildfire (Yehuo) H743 BSP subset — WM8978 / SAI / I2C / delay
+   - Source: Wildfire STM32H743 (H7Pro) example package,
+     "39-SAI — Audio / SAI — Record and Playback" (User/wm8978, User/sai,
+     User/i2c, User/delay, plus minimal headers main.h / stm32h7xx_hal_conf.h /
+     usart/bsp_debug_usart.h / Recorder/Recorder.h).
+   - Copyright: Wildfire (fire) / Yehuo Electronics. All rights belong to the
+     original author.
+   - Note: only the minimal subset needed to build this project is included.
+     Comments in these files were translated from Chinese to English for this
+     repository; the code itself is unchanged. It is provided here for
+     reproducibility/compatibility with the Wildfire H7Pro board; it is NOT
+     covered by this project's LICENSE. If you are the rights holder and want
+     it removed or replaced, please open an issue.
+
+Project-specific files (src/kws_mic_app.cc, src/kws_dsp.*, src/fft.*, src/led.*,
+src/key.*, src/timebase.h, assets/*) are original work and are licensed under
+the Apache License 2.0 (see LICENSE).
