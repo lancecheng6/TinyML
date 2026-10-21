@@ -1,0 +1,52 @@
+NOTICE
+======
+This repository (`stm32h743-vww-uart`) is a TinyML demo project. It bundles the
+following third-party components. Each component remains under its original
+license; see the upstream repositories for the full license text.
+
+1) TensorFlow Lite Micro (TFLM)
+   - Source: https://github.com/tensorflow/tflite-micro
+   - License: Apache License 2.0
+   - Included: a subset of headers (include/tensorflow, include/signal), the
+     prebuilt static library lib/libtensorflow-microlite.a (cortex-m7+fp,
+     CMSIS-NN kernels), src/h743_port.cc (platform port derived from the
+     official hello_world example), and the bundled person-detection model
+     (assets/person_detect_model_data.cc, generated from
+     tensorflow/lite/micro/models/person_detect.tflite).
+
+2) CMSIS / CMSIS-NN (Arm)
+   - Source: https://github.com/ARM-software/CMSIS_5
+             https://github.com/ARM-software/CMSIS-NN
+   - License: Apache License 2.0
+   - Included: include/cmsis_core (headers); the prebuilt TFLM library was
+     compiled with CMSIS-NN kernels.
+
+3) gemmlowp
+   - Source: https://github.com/google/gemmlowp
+   - License: Apache License 2.0
+   - Included: include/gemmlowp (headers).
+
+4) kissfft
+   - Source: https://github.com/mborgerding/kissfft
+   - License: BSD-3-Clause
+   - Included: include/kissfft (headers).
+
+5) FlatBuffers
+   - Source: https://github.com/google/flatbuffers
+   - License: Apache License 2.0
+   - Included: include/flatbuffers (headers).
+
+6) STM32 device headers / startup / system (STMicroelectronics)
+   - Source: STM32Cube / CMSIS device pack (STM32H7 series)
+   - License: Apache License 2.0 / BSD-3-Clause (per the original ST file headers)
+   - Included: include/stm32h7xx, bsp/startup_stm32h743xx.s,
+     bsp/system_stm32h7xx.c
+
+7) STM32H7 HAL driver (subset) (STMicroelectronics)
+   - Source: STM32CubeH7 (STM32H7xx_HAL_Driver)
+   - License: BSD-3-Clause (per the original ST file headers)
+   - Included: hal/Inc, hal/Src (only the modules required by this project).
+
+Project-specific files (src/person_uart_app.cc, src/led.*, src/timebase.h,
+assets/person_detect_model_data.* is generated from the TFLM model, pc/*) are
+original work and are licensed under the Apache License 2.0 (see LICENSE).
